@@ -2,10 +2,13 @@ package ua.com.helplist.DaoImpl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import ua.com.helplist.Dao.IVolunteerDao;
 import ua.com.helplist.Model.Volunteer;
 import ua.com.helplist.Utils.Constants.Role;
 
+@Repository
 public class VolunteerDao implements IVolunteerDao {
 
 	@Override
