@@ -24,4 +24,29 @@ public class Person extends BaseObject {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "settlement_id")
 	private Settlement settlement;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public Settlement getSettlement() {
+		return settlement;
+	}
+
+	public void setSettlement(Settlement settlement) {
+		this.settlement = settlement;
+	}
+
 }

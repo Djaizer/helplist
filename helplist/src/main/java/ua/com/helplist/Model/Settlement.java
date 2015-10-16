@@ -15,12 +15,12 @@ import ua.com.helplist.Utils.Constants;
 
 @Entity(name = "setllement")
 @Table(name = "settlements")
-public class Settlement {
+public class Settlement extends BaseObject {
 	@Enumerated(EnumType.STRING)
 	private Constants.SettlementType type;
 	@ManyToOne
 	@JoinColumn(name = "region_id")
 	private Region region;
-	@OneToMany(mappedBy = "settlement_id", fetch = FetchType.LAZY)
-	private List<Person> persons;
+	//@OneToMany(mappedBy = "settlement_id", fetch = FetchType.LAZY)
+	//private List<Person> persons;
 }

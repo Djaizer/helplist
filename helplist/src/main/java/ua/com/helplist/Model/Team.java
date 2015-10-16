@@ -18,6 +18,6 @@ public class Team extends BaseObject {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "leader_id", nullable = true)
 	private Volunteer leader;
-	@OneToMany(mappedBy = "team_id")
-	private List<Volunteer> volunteers;
+	//@OneToMany(mappedBy = "team_id")
+	//private List<Volunteer> volunteers;
 }

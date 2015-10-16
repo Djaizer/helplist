@@ -2,6 +2,11 @@ package ua.com.helplist.DaoImpl;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ua.com.helplist.Dao.IVolunteerDao;
@@ -11,10 +16,18 @@ import ua.com.helplist.Utils.Constants.Role;
 @Repository
 public class VolunteerDao implements IVolunteerDao {
 
+	@Autowired
+	private EntityManagerFactory entityManagerFactory;
+	
+	private EntityManager em;
+
 	@Override
-	public Volunteer createVolunteer(Volunteer Volunteer) {
-		// TODO Auto-generated method stub
-		return null;
+	public Volunteer createVolunteer(Volunteer volunteer) {
+		em = entityManagerFactory.createEntityManager();
+		em.getTransaction().begin();
+		em.persist(volunteer);
+		em.getTransaction().commit();
+		return volunteer;
 	}
 
 	@Override
@@ -51,6 +64,14 @@ public class VolunteerDao implements IVolunteerDao {
 	public int removeVolunteers(List<Volunteer> Volunteers) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
 	}
 
 }

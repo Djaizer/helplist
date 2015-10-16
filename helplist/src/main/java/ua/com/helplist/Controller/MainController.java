@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ua.com.helplist.DaoImpl.VolunteerDao;
+import ua.com.helplist.Model.Volunteer;
 
 @Controller
 @RequestMapping(value = "/")
@@ -18,6 +19,9 @@ public class MainController {
 	@RequestMapping(value = "main", method = RequestMethod.GET)
 	public String main(ModelMap model) {
 		model.addAttribute("msg", "Main: Hello, World! () ");
+		Volunteer v = new Volunteer();
+		v.setName("Voven");
+		vd.createVolunteer(v);
 		return "index";
 	}
 	
